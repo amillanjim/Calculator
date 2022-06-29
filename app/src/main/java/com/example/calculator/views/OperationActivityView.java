@@ -51,9 +51,7 @@ public class OperationActivityView extends AppCompatActivity implements Operatio
 
     private void doAdd(View v){
         try {
-            int num1 = Integer.parseInt(Objects.requireNonNull(edtFirstNumber.getText()).toString());
-            int num2 = Integer.parseInt(Objects.requireNonNull(edtSecondNumber.getText()).toString());
-            presenter.add(num1, num2);
+            presenter.add(getFirstNumber(), getSecondNumber());
         } catch (Exception e) {
             invalidOperation();
         }
@@ -61,9 +59,7 @@ public class OperationActivityView extends AppCompatActivity implements Operatio
 
     private void doSubstract(View v){
         try {
-            int num1 = Integer.parseInt(Objects.requireNonNull(edtFirstNumber.getText()).toString());
-            int num2 = Integer.parseInt(Objects.requireNonNull(edtSecondNumber.getText()).toString());
-            presenter.subtract(num1, num2);
+            presenter.subtract(getFirstNumber(), getSecondNumber());
         } catch (Exception e) {
             invalidOperation();
         }
@@ -71,9 +67,7 @@ public class OperationActivityView extends AppCompatActivity implements Operatio
 
     private void doMultiply(View v){
         try {
-            int num1 = Integer.parseInt(Objects.requireNonNull(edtFirstNumber.getText()).toString());
-            int num2 = Integer.parseInt(Objects.requireNonNull(edtSecondNumber.getText()).toString());
-            presenter.multiply(num1, num2);
+            presenter.multiply(getFirstNumber(), getSecondNumber());
         } catch (NumberFormatException e) {
             invalidOperation();
         }
@@ -81,13 +75,18 @@ public class OperationActivityView extends AppCompatActivity implements Operatio
 
     private void doDivide(View v){
         try {
-            int num1 = Integer.parseInt(Objects.requireNonNull(edtFirstNumber.getText()).toString());
-            int num2 = Integer.parseInt(Objects.requireNonNull(edtSecondNumber.getText()).toString());
-            presenter.divide(num1, num2);
+            presenter.divide(getFirstNumber(), getSecondNumber());
         } catch (Exception e) {
             invalidOperation();
         }
+    }
 
+    private int getFirstNumber(){
+        return Integer.parseInt(Objects.requireNonNull(edtFirstNumber.getText()).toString());
+    }
+
+    private int getSecondNumber(){
+        return Integer.parseInt(Objects.requireNonNull(edtSecondNumber.getText()).toString());
     }
 
     @Override
