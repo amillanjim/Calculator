@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General dimens -->
+    <dimen name="generalMargin">15dp</dimen>
+    <dimen name="cornerRadius">10dp</dimen>
+
+</resources>
